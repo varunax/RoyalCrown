@@ -1,0 +1,293 @@
+<html>
+
+<head>
+<script src="./RoyalCrownCalculator.js"></script>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+
+</head>
+
+<body onload = "initStats()">
+<h1>Royal Crown Equipment Calculator</h1>
+<p>Created by: Blackheart</p>
+<br>
+<p>Choose your champion:</p>
+<label for="champion">Champion:</label>
+<select id="champion" onchange="calculate()">
+	<option value="none"></option>
+	<option value="Alicia">Alicia</option>
+</select>
+<label for="level">Level</label>
+<select id="level" onchange="calculate()">
+	<option value ="0"></option>
+	<option value ="1">1</option>
+	<option value ="2">2</option>
+	<option value ="3">3</option>
+	<option value ="4">4</option>
+	<option value ="5">5</option>
+	<option value ="6">6</option>
+	<option value ="7">7</option>
+	<option value ="8">8</option>
+	<option value ="9">9</option>
+	<option value ="10">10</option>
+	<option value ="11">11</option>
+	<option value ="12">12</option>
+	<option value ="13">13</option>
+	<option value ="14">14</option>
+	<option value ="15">15</option>
+</select></p>
+
+<p>Stats:</p>
+<br>
+
+<table style="width:33%">
+<tr>
+	<td>PHY.ATK: <span id= "patkStat"></span></td>
+	<td>MAG.ATK: <span id= "matkStat"></span></td>
+	<td>PHY.DEF: <span id= "pdefStat"></span></td>
+	<td>MAG.DEF: <span id= "mdefStat"></span></td>
+</tr>
+<tr>
+	<td>HP: <span id= "hpStat"></span></td>
+	<td>MP: <span id= "mpStat"></span></td>
+	<td>ATK.SPD: <span id= "atkspdStat"></span></td>
+	<td>CRIT.RATE%: <span id= "critrateStat"></span></td>
+</tr>
+<tr>
+	<td>CD.RED: <span id= "cdredStat"></span></td>
+	<td>HP.REGEN: <span id= "hpregenStat"></span></td>
+	<td>MOV.SPD: <span id= "movspdStat"></span></td>
+	<td>MP.REGEN: <span id= "mpregenStat"></span></td>
+</tr>
+<tr>
+	<td>PHY.PEN: <span id= "ppenStat"></span></td>
+	<td>PHY.PEN%: <span id= "ppenPercentStat"></span></td>
+	<td>MAG.PEN: <span id= "mpenStat"></span></td>
+	<td>MAG.PEN%: <span id= "mpenPercentStat"></span></td>
+</tr>
+
+</table>
+<br>
+<p>Choose your equipment:</p>
+
+<label for="weapon">Weapon:</label>
+<select id="weapon">
+	<option value="none"></option>
+	<option value="crescentBlade">Crescent Blade</option>
+	<option value="heavyHammer">Heavy Hammer</option>
+	<option value="kaulsGreatsword">Kaul's Greatsword</option>
+	<option value="splitAxe">Split Axe</option>
+	<option value="steelSword">Steel Sword</option>
+	<option value="etherStaff">Ether Staff</option>
+	<option value="knightsSpecter">Knight's Specter</option>
+	<option value="sagesStaff">Sage's Staff</option>
+</select>
+<label for="weaponRarity">Rarity:</label>
+<select id = "weaponRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="helmet">Helmet:</label>
+<select id="helmet">
+	<option value="none"></option>
+	<option value="etherCrown">Ether Crown</option>
+	<option value="giantsHelm">Giant's Helm</option>
+	<option value="mithrilHelm">Mithril Helm</option>
+	<option value="sagesCrown">Sage's Crown</option>
+	<option value="snipersHat">Sniper's Hat</option>
+	<option value="steelHelm">Steel Helm</option>
+		
+</select>
+<label for="helmetRarity">Rarity:</label>
+<select id = "helmetRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="armor">Armor:</label>
+<select id="armor">
+	<option value="none"></option>
+	<option value="etherRobe">Ether Robe</option>
+	<option value="giantsArmor">Giant's Armor</option>
+	<option value="gladiatorsArmor">Gladiator's Armor</option>
+	<option value="huntersArmor">Hunter's Armor</option>
+	<option value="sagesRobe">Sage's Robe</option>
+	<option value="snipersArmor">Sniper's Armor</option>
+	<option value="steelArmor">Steel Armor</option>
+  
+</select>
+<label for="armorRarity">Rarity:</label>
+<select id = "armorRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="gloves">Gloves:</label>
+<select id="gloves">
+	<option value="none"></option>
+	<option value="bloodyGloves">Bloody Gloves</option>
+	<option value="gladiatorsGloves">Gladiator's Gloves</option>
+	<option value="huntersGloves">Hunter's Gloves</option>
+	<option value="ironGauntlet">Iron Gauntlet</option>
+	<option value="magesGloves">Mage's Gloves</option>
+	<option value="sagesGloves">Sage's Gloves</option>
+	<option value="snipersGloves">Sniper's Gloves</option>
+</select>
+
+<label for="gloveRarity">Rarity:</label>
+<select id = "gloveRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="boots">Boots:</label>
+<select id="boots">
+	<option value="none"></option>
+	<option value="etherBoots">Ether Boots</option>
+	<option value="huntersBoots">Hunter's Boots</option>
+	<option value="sagesBoots">Sage's Boots</option>
+	<option value="steelBoots">Steel Boots</option>
+</select>
+<label for="bootRarity">Rarity:</label>
+<select id = "bootRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="accessory">Accessory:</label>
+<select id="accesory">
+	<option value="none"></option>
+	<option value="runeStatue">Rune Statue</option>
+	<option value="jaggedAccessory">Jagged Accessory</option>
+	<option value="statueOfLife">Statue of Life</option>
+	<option value="theAwakening">The Awakening</option>
+	<option value="voodooDoll">Voodoo Doll</option>
+	<option value="manaCrystal">Mana Crystal</option>
+</select>
+<label for="accRarity">Rarity:</label>
+<select id = "accRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<br>
+
+<p>Choose your runes:</p>
+
+<label for="weaponRune">Weapon Rune:</label>
+<select id="weaponRune">
+<option value="none"></option>
+	<option value="powerRune">Power Rune</option>
+	<option value="deathRune">Death Rune</option>
+	<option value="speedRune">Speed Rune</option>
+	<option value="defenseRune">Defense Rune</option>
+	<option value="healthRune">Health Rune</option>
+	<option value="manaRune">Mana Rune</option>
+</select>
+<label for="weaponRuneRarity">Rarity:</label>
+<select id = "weaponRuneRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="helmetRune">Helmet Rune:</label>
+<select id="helmetRune">
+<option value="none"></option>
+	<option value="powerRune">Power Rune</option>
+	<option value="deathRune">Death Rune</option>
+	<option value="speedRune">Speed Rune</option>
+	<option value="defenseRune">Defense Rune</option>
+	<option value="healthRune">Health Rune</option>
+	<option value="manaRune">Mana Rune</option>
+</select>
+<label for="helmetRuneRarity">Rarity:</label>
+<select id = "helmetRuneRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="armorRune">Armor Rune:</label>
+<select id="armorRune">
+<option value="none"></option>
+	<option value="powerRune">Power Rune</option>
+	<option value="deathRune">Death Rune</option>
+	<option value="speedRune">Speed Rune</option>
+	<option value="defenseRune">Defense Rune</option>
+	<option value="healthRune">Health Rune</option>
+	<option value="manaRune">Mana Rune</option>
+</select>
+<label for="armorRuneRarity">Rarity:</label>
+<select id = "armorRuneRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="gloveRune">Glove Rune:</label>
+<select id="gloveRune">
+<option value="none"></option>
+	<option value="powerRune">Power Rune</option>
+	<option value="deathRune">Death Rune</option>
+	<option value="speedRune">Speed Rune</option>
+	<option value="defenseRune">Defense Rune</option>
+	<option value="healthRune">Health Rune</option>
+	<option value="manaRune">Mana Rune</option>
+</select>
+<label for="gloveRuneRarity">Rarity:</label>
+<select id = "gloveRuneRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+
+<label for="bootRune">Boot Rune:</label>
+<select id="bootRune">
+<option value="none"></option>
+	<option value="powerRune">Power Rune</option>
+	<option value="deathRune">Death Rune</option>
+	<option value="speedRune">Speed Rune</option>
+	<option value="defenseRune">Defense Rune</option>
+	<option value="healthRune">Health Rune</option>
+	<option value="manaRune">Mana Rune</option>
+</select>
+<label for="bootRuneRarity">Rarity:</label>
+<select id = "bootRuneRarity">
+	<option value="none"></option>
+	<option value="uncommon">Uncommon</option>
+	<option value="rare">Rare</option>
+	<option value="epic">Epic</option>
+</select></p>
+<button onclick = "calculate()">Calculate</button>
+</body>
+</html>
