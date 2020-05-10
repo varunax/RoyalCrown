@@ -22,6 +22,7 @@ td, th {
 <body onload = "initStats()">
 <h1>Royal Crown Equipment Calculator</h1>
 <p>Created by: Blackheart</p>
+<img src ="logo.jpg" align="center">
 <br>
 <p>Choose your champion:</p>
 <label for="champion">Champion:</label>
@@ -62,13 +63,13 @@ td, th {
 <tr>
 	<td>HP: <span id= "hpStat"></span></td>
 	<td>MP: <span id= "mpStat"></span></td>
-	<td>ATK.SPD: <span id= "atkspdStat"></span></td>
+	<td>ATK.SPD%: <span id= "atkspdStat"></span></td>
 	<td>CRIT.RATE%: <span id= "critrateStat"></span></td>
 </tr>
 <tr>
-	<td>CD.RED: <span id= "cdredStat"></span></td>
+	<td>CD.RED%: <span id= "cdredStat"></span></td>
 	<td>HP.REGEN: <span id= "hpregenStat"></span></td>
-	<td>MOV.SPD: <span id= "movspdStat"></span></td>
+	<td>MOV.SPD%: <span id= "movspdStat"></span></td>
 	<td>MP.REGEN: <span id= "mpregenStat"></span></td>
 </tr>
 <tr>
@@ -83,7 +84,7 @@ td, th {
 <p>Choose your equipment:</p>
 
 <label for="weapon">Weapon:</label>
-<select id="weapon">
+<select id="weapon" onchange="calculate()">
 	<option value="none"></option>
 	<option value="crescentBlade">Crescent Blade</option>
 	<option value="heavyHammer">Heavy Hammer</option>
@@ -95,7 +96,7 @@ td, th {
 	<option value="sagesStaff">Sage's Staff</option>
 </select>
 <label for="weaponRarity">Rarity:</label>
-<select id = "weaponRarity">
+<select id = "weaponRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -103,7 +104,7 @@ td, th {
 </select></p>
 
 <label for="helmet">Helmet:</label>
-<select id="helmet">
+<select id="helmet" onchange="calculate()">
 	<option value="none"></option>
 	<option value="etherCrown">Ether Crown</option>
 	<option value="giantsHelm">Giant's Helm</option>
@@ -114,7 +115,7 @@ td, th {
 		
 </select>
 <label for="helmetRarity">Rarity:</label>
-<select id = "helmetRarity">
+<select id = "helmetRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -122,7 +123,7 @@ td, th {
 </select></p>
 
 <label for="armor">Armor:</label>
-<select id="armor">
+<select id="armor" onchange="calculate()">
 	<option value="none"></option>
 	<option value="etherRobe">Ether Robe</option>
 	<option value="giantsArmor">Giant's Armor</option>
@@ -134,7 +135,7 @@ td, th {
   
 </select>
 <label for="armorRarity">Rarity:</label>
-<select id = "armorRarity">
+<select id = "armorRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -142,7 +143,7 @@ td, th {
 </select></p>
 
 <label for="gloves">Gloves:</label>
-<select id="gloves">
+<select id="gloves" onchange="calculate()">
 	<option value="none"></option>
 	<option value="bloodyGloves">Bloody Gloves</option>
 	<option value="gladiatorsGloves">Gladiator's Gloves</option>
@@ -154,7 +155,7 @@ td, th {
 </select>
 
 <label for="gloveRarity">Rarity:</label>
-<select id = "gloveRarity">
+<select id = "gloveRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -162,7 +163,7 @@ td, th {
 </select></p>
 
 <label for="boots">Boots:</label>
-<select id="boots">
+<select id="boots" onchange="calculate()">
 	<option value="none"></option>
 	<option value="etherBoots">Ether Boots</option>
 	<option value="huntersBoots">Hunter's Boots</option>
@@ -170,7 +171,7 @@ td, th {
 	<option value="steelBoots">Steel Boots</option>
 </select>
 <label for="bootRarity">Rarity:</label>
-<select id = "bootRarity">
+<select id = "bootRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -178,7 +179,7 @@ td, th {
 </select></p>
 
 <label for="accessory">Accessory:</label>
-<select id="accesory">
+<select id="accesory" onchange="calculate()">
 	<option value="none"></option>
 	<option value="runeStatue">Rune Statue</option>
 	<option value="jaggedAccessory">Jagged Accessory</option>
@@ -188,7 +189,7 @@ td, th {
 	<option value="manaCrystal">Mana Crystal</option>
 </select>
 <label for="accRarity">Rarity:</label>
-<select id = "accRarity">
+<select id = "accRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -200,7 +201,7 @@ td, th {
 <p>Choose your runes:</p>
 
 <label for="weaponRune">Weapon Rune:</label>
-<select id="weaponRune">
+<select id="weaponRune" onchange="calculate()">
 <option value="none"></option>
 	<option value="powerRune">Power Rune</option>
 	<option value="deathRune">Death Rune</option>
@@ -210,7 +211,7 @@ td, th {
 	<option value="manaRune">Mana Rune</option>
 </select>
 <label for="weaponRuneRarity">Rarity:</label>
-<select id = "weaponRuneRarity">
+<select id = "weaponRuneRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -218,7 +219,7 @@ td, th {
 </select></p>
 
 <label for="helmetRune">Helmet Rune:</label>
-<select id="helmetRune">
+<select id="helmetRune" onchange="calculate()">
 <option value="none"></option>
 	<option value="powerRune">Power Rune</option>
 	<option value="deathRune">Death Rune</option>
@@ -228,7 +229,7 @@ td, th {
 	<option value="manaRune">Mana Rune</option>
 </select>
 <label for="helmetRuneRarity">Rarity:</label>
-<select id = "helmetRuneRarity">
+<select id = "helmetRuneRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -236,7 +237,7 @@ td, th {
 </select></p>
 
 <label for="armorRune">Armor Rune:</label>
-<select id="armorRune">
+<select id="armorRune" onchange="calculate()">
 <option value="none"></option>
 	<option value="powerRune">Power Rune</option>
 	<option value="deathRune">Death Rune</option>
@@ -246,7 +247,7 @@ td, th {
 	<option value="manaRune">Mana Rune</option>
 </select>
 <label for="armorRuneRarity">Rarity:</label>
-<select id = "armorRuneRarity">
+<select id = "armorRuneRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -254,7 +255,7 @@ td, th {
 </select></p>
 
 <label for="gloveRune">Glove Rune:</label>
-<select id="gloveRune">
+<select id="gloveRune" onchange="calculate()">
 <option value="none"></option>
 	<option value="powerRune">Power Rune</option>
 	<option value="deathRune">Death Rune</option>
@@ -272,7 +273,7 @@ td, th {
 </select></p>
 
 <label for="bootRune">Boot Rune:</label>
-<select id="bootRune">
+<select id="bootRune" onchange="calculate()">
 <option value="none"></option>
 	<option value="powerRune">Power Rune</option>
 	<option value="deathRune">Death Rune</option>
@@ -282,12 +283,11 @@ td, th {
 	<option value="manaRune">Mana Rune</option>
 </select>
 <label for="bootRuneRarity">Rarity:</label>
-<select id = "bootRuneRarity">
+<select id = "bootRuneRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
-<button onclick = "calculate()">Calculate</button>
 </body>
 </html>
