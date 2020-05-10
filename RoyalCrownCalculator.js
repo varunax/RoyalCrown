@@ -41,6 +41,7 @@ function BaseStats(){
 	this.hpGrowth = 0;
 	this.mp = 0;
 	this.mpGrowth = 0;
+	this.mpregen = 0;
 	this.atkspd = 0;
 	this.atkspdGrowth = 0;
 }
@@ -69,19 +70,56 @@ function calculate(){
 	if(championName == "none" || level == 0){initStats(); return;};
 	
 	switch(championName){
-		case "alicia":
+		case "leo":
 		baseStat.patk = 130;
 		baseStat.patkGrowth = 3;
-		baseStat.pdef = 25;
-		baseStat.pdefGrowth = 3.5;
+		baseStat.pdef = 40;
+		baseStat.pdefGrowth = 3.8;
 		baseStat.matk = 0;
 		baseStat.matkGrowth = 0;
-		baseStat.mdef = 25;
+		baseStat.mdef = 30;
 		baseStat.mdefGrowth = 1;
 		baseStat.hp = 1500;
 		baseStat.hpGrowth = 80;
 		baseStat.mp = 500;
 		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "bella":
+		baseStat.patk = 120;
+		baseStat.patkGrowth = 2;
+		baseStat.pdef = 20;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 20;
+		baseStat.mdefGrowth = 0.5;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 2;
+		break;
+		
+		case "morgan":
+		baseStat.patk = 110;
+		baseStat.patkGrowth = 3;
+		baseStat.pdef = 40;
+		baseStat.pdefGrowth = 3.8;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 2;
+		baseStat.mdef = 30;
+		baseStat.mdefGrowth = 1.25;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 100;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 50;
+		baseStat.mpregen = 2;
 		baseStat.atkspd = 0;
 		baseStat.atkspdGrowth = 1;
 		break;
@@ -99,6 +137,205 @@ function calculate(){
 		baseStat.hpGrowth = 80;
 		baseStat.mp = 500;
 		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "spark":
+		baseStat.patk = 80;
+		baseStat.patkGrowth = 1;
+		baseStat.pdef = 20;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 4;
+		baseStat.mdef = 20;
+		baseStat.mdefGrowth = 0.5;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 50;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 50;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "stepan":
+		baseStat.patk = 120;
+		baseStat.patkGrowth = 3;
+		baseStat.pdef = 20;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 20;
+		baseStat.mdefGrowth = 1.25;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "cheff":
+		baseStat.patk = 130;
+		baseStat.patkGrowth = 2;
+		baseStat.pdef = 30;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 30;
+		baseStat.mdefGrowth = 0.5;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "selkie":
+		baseStat.patk = 120;
+		baseStat.patkGrowth = 2;
+		baseStat.pdef = 20;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 20;
+		baseStat.mdefGrowth = 0.5;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 2;
+		break;
+		
+		case "alicia":
+		baseStat.patk = 130;
+		baseStat.patkGrowth = 3;
+		baseStat.pdef = 25;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 25;
+		baseStat.mdefGrowth = 1;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "odri":
+		baseStat.patk = 100;
+		baseStat.patkGrowth = 1;
+		baseStat.pdef = 30;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 2;
+		baseStat.mdef = 30;
+		baseStat.mdefGrowth = 0.5;
+		baseStat.hp = 1400;
+		baseStat.hpGrowth = 70;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 60;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "nina":
+		baseStat.patk = 100;
+		baseStat.patkGrowth = 3;
+		baseStat.pdef = 35;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 25;
+		baseStat.mdefGrowth = 1.25;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "coric":
+		baseStat.patk = 120;
+		baseStat.patkGrowth = 4;
+		baseStat.pdef = 40;
+		baseStat.pdefGrowth = 3.8;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 40;
+		baseStat.mdefGrowth = 1.25;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 120;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "bastine":
+		baseStat.patk = 120;
+		baseStat.patkGrowth = 3;
+		baseStat.pdef = 40;
+		baseStat.pdefGrowth = 3.8;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 2;
+		baseStat.mdef = 40;
+		baseStat.mdefGrowth = 2;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 100;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 50;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "sonya":
+		baseStat.patk = 120;
+		baseStat.patkGrowth = 3;
+		baseStat.pdef = 30;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 30;
+		baseStat.mdefGrowth = 1.25;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.mpregen = 2;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "rukh":
+		baseStat.patk = 110;
+		baseStat.patkGrowth = 4;
+		baseStat.pdef = 20;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 20;
+		baseStat.mdefGrowth = 0.5;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 50;
+		baseStat.mpregen = 2;
 		baseStat.atkspd = 0;
 		baseStat.atkspdGrowth = 1;
 		break;
@@ -1443,7 +1680,7 @@ function calculate(){
 	champion.cdred = 0;
 	champion.hpregen = 0;
 	champion.movspd = 0;
-	champion.mpregen = 0;
+	champion.mpregen = baseStat.mpregen;
 	
 	champion.ppen = 0;
 	champion.ppenPercent = 0;
@@ -1477,7 +1714,5 @@ function calculate(){
 	var i = 0;
 	var j = 0;
 	var championStats = Object.values(champion);
-	for(j in championStats){
-		document.getElementById(stats[i++]).innerHTML = championStats[j];
-		}
+	for(j in championStats){document.getElementById(stats[i++]).innerHTML = championStats[j].toFixed(1);}
 }
