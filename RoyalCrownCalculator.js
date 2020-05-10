@@ -1431,43 +1431,48 @@ function calculate(){
 	];
 	
 	champion.patk = baseStat.patk + baseStat.patkGrowth*level-baseStat.patkGrowth;
-	for(i in equipList){
-		champion.patk += equipList[i].patk;
-	}
-	
 	champion.matk = baseStat.matk + weaponEquip.matk;
-	for(i in equipList){champion.matk += equipList[i].matk;}
-	champion.matk *= (1 + helmetMatkPercent/100);
-	
 	champion.pdef = baseStat.pdef + baseStat.pdefGrowth*level-baseStat.pdefGrowth;
-	for(i in equipList){champion.pdef += equipList[i].pdef;}
-	
 	champion.mdef = baseStat.mdef + baseStat.mdefGrowth*level-baseStat.mdefGrowth;
-	for(i in equipList){champion.mdef += equipList[i].mdef;}
 	
 	champion.hp = baseStat.hp + baseStat.hpGrowth*level-baseStat.hpGrowth;
-	for(i in equipList){champion.hp += equipList[i].hp;}
-	
 	champion.mp = baseStat.mp + baseStat.mpGrowth*level-baseStat.mpGrowth;
-	for(i in equipList){champion.mp += equipList[i].mp;}
-	
 	champion.atkspd = baseStat.atkspd + baseStat.atkspdGrowth*level-baseStat.atkspdGrowth;
-	for(i in equipList){champion.atkspd += equipList[i].atkspd;}
-	
 	champion.critrate = 0;
-	for(i in equipList){champion.critrate += equipList[i].critrate;}
-	
-	champion.movspd = 0;
-	for(i in equipList){champion.movspd += equipList[i].movspd;}
-		
-	champion.ppenPercent = 0;
-	for(i in equipList){champion.ppenPercent += equipList[i].ppenPercent;}
-	
-	champion.mpenPercent = 0;
-	for(i in equipList){champion.mpenPercent += equipList[i].mpenPercent;}
 	
 	champion.cdred = 0;
-	for(i in equipList){champion.cdred += equipList[i].cdred;}
+	champion.hpregen = 0;
+	champion.movspd = 0;
+	champion.mpregen = 0;
+	
+	champion.ppen = 0;
+	champion.ppenPercent = 0;
+	champion.mpen = 0;
+	champion.mpenPercent = 0;
+	
+	for(i in equipList){
+		champion.patk += equipList[i].patk;
+		champion.matk += equipList[i].matk;
+		champion.pdef += equipList[i].pdef;
+		champion.mdef += equipList[i].mdef;
+		
+		champion.hp += equipList[i].hp;
+		champion.mp += equipList[i].mp;
+		champion.atkspd += equipList[i].atkspd;
+		champion.critrate += equipList[i].critrate;
+		
+		champion.cdred += equipList[i].cdred;
+		champion.hpregen += equipList[i].hpregen;
+		champion.movspd += equipList[i].movspd;
+		champion.mpregen += equipList[i].mpregen;
+		
+		champion.ppen += equipList[i].ppen;
+		champion.ppenPercent += equipList[i].ppenPercent;
+		champion.mpen += equipList[i].mpen;
+		champion.mpenPercent += equipList[i].mpenPercent;
+	}
+	
+	champion.matk *= (1 + (armorMatkPercent/100 + helmetMatkPercent/100));
 	
 	var i = 0;
 	var j = 0;
