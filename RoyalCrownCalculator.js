@@ -31,6 +31,7 @@ val13, val14, val15, val16){
 	this.mpen = val15;
 	this.mpenPercent = val16;
 }
+
 function initStats(){
 	var stats = [
 	"patkStat","matkStat","pdefStat","mdefStat",
@@ -83,19 +84,7 @@ function calculate(){
 	
 	var weaponName = document.getElementById("weapon").value;
 	var weaponRarity = document.getElementById("weaponRarity").value;
-	
 	var weaponEquip = new Equip(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
-	
-/* 	var weaponPatk = 0;
-	var weaponMatk = 0;
-	var weaponPdef = 0;
-	var weaponMdef = 0;
-	var weaponAtkspd = 0;
-	var weaponMovspd = 0;
-	var weaponPpen = 0;
-	var weaponMpen = 0;
-	var weaponCritrate = 0;
-	var weaponCdRate = 0; */
 	
 	switch(weaponName){
 		case "steelSword":
@@ -113,9 +102,9 @@ function calculate(){
 				break;
 				
 				case "epic":
-				weaponPatk = 40;
-				weaponPdef = 30;
-				weaponMdef = 30;
+				weaponEquip.patk = 40;
+				weaponEquip.pdef = 30;
+				weaponEquip.mdef = 30;
 				break;
 			}
 		break;
@@ -123,21 +112,21 @@ function calculate(){
 		case "crescentBlade":
 			switch(weaponRarity){
 				case "uncommon":
-				weaponPatk = 25;
-				weaponAtkspd = 10;
-				weaponMovspd = 3;
+				weaponEquip.patk = 25;
+				weaponEquip.atkspd = 10;
+				weaponEquip.movspd = 3;
 				break;
 				
 				case "rare":
-				weaponPatk = 37.5;
-				weaponAtkspd = 15;
-				weaponMovspd = 4;
+				weaponEquip.patk = 37.5;
+				weaponEquip.atkspd = 15;
+				weaponEquip.movspd = 4;
 				break;
 				
 				case "epic":
-				weaponPatk = 50;
-				weaponAtkspd = 20;
-				weaponMovspd = 5;
+				weaponEquip.patk = 50;
+				weaponEquip.atkspd = 20;
+				weaponEquip.movspd = 5;
 				break;
 			}
 		break;
@@ -145,18 +134,18 @@ function calculate(){
 		case "heavyHammer":
 			switch(weaponRarity){
 				case "uncommon":
-				weaponPatk = 25;
-				weaponPpen = 5;
+				weaponEquip.patk = 25;
+				weaponEquip.ppenPercent = 5;
 				break;
 				
 				case "rare":
-				weaponPatk = 37.5;
-				weaponPpen = 8;
+				weaponEquip.patk = 37.5;
+				weaponEquip.ppenPercent = 8;
 				break;
 				
 				case "epic":
-				weaponPatk = 50;
-				weaponPpen = 10;
+				weaponEquip.patk = 50;
+				weaponEquip.ppenPercent = 10;
 				break;
 			}
 		break;
@@ -164,15 +153,15 @@ function calculate(){
 		case "kaulsGreatsword":
 			switch(weaponRarity){
 				case "uncommon":
-				weaponPatk = 30;
+				weaponEquip.patk = 30;
 				break;
 				
 				case "rare":
-				weaponPatk = 45;
+				weaponEquip.patk = 45;
 				break;
 				
 				case "epic":
-				weaponPatk = 60;
+				weaponEquip.patk = 60;
 				break;
 			}
 		break;
@@ -180,18 +169,18 @@ function calculate(){
 		case "splitAxe":
 			switch(weaponRarity){
 				case "uncommon":
-				weaponPatk = 25;
-				weaponCritrate = 13;
+				weaponEquip.patk = 25;
+				weaponEquip.critrate = 13;
 				break;
 				
 				case "rare":
-				weaponPatk = 37.5;
-				weaponCritrate = 19;
+				weaponEquip.patk = 37.5;
+				weaponEquip.critrate = 19;
 				break;
 				
 				case "epic":
-				weaponPatk = 50;
-				weaponCritrate = 25;
+				weaponEquip.patk = 50;
+				weaponEquip.critrate = 25;
 				break;
 			}
 		break;
@@ -199,18 +188,18 @@ function calculate(){
 		case "etherStaff":
 			switch(weaponRarity){
 				case "uncommon":
-				weaponMatk = 45;
-				weaponMpen = 5;
+				weaponEquip.matk = 45;
+				weaponEquip.mpenPercent = 5;
 				break;
 				
 				case "rare":
-				weaponMatk = 67;
-				weaponMpen = 8;
+				weaponEquip.matk = 67;
+				weaponEquip.mpenPercent = 8;
 				break;
 				
 				case "epic":
-				weaponMatk = 90;
-				weaponMpen = 10;
+				weaponEquip.matk = 90;
+				weaponEquip.mpenPercent = 10;
 				break;
 			}
 		break;
@@ -218,18 +207,21 @@ function calculate(){
 		case "knightsScepter":
 			switch(weaponRarity){
 				case "uncommon":
-				weaponMatk = 30;
-				weaponMpen = 5;
+				weaponEquip.matk = 30;
+				weaponEquip.pdef = 18;
+				weaponEquip.mdef = 18;
 				break;
 				
 				case "rare":
-				weaponMatk = 45;
-				weaponMpen = 8;
+				weaponEquip.matk = 45;
+				weaponEquip.pdef = 24;
+				weaponEquip.mdef = 24;
 				break;
 				
 				case "epic":
-				weaponMatk = 60;
-				weaponMpen = 10;
+				weaponEquip.matk = 60;
+				weaponEquip.pdef = 30;
+				weaponEquip.mdef = 30;
 				break;
 			}
 		break;
@@ -237,18 +229,18 @@ function calculate(){
 		case "sagesStaff":
 			switch(weaponRarity){
 				case "uncommon":
-				weaponMatk = 35;
-				weaponCdRate = 5;
+				weaponEquip.matk = 35;
+				weaponEquip.cdred = 5;
 				break;
 				
 				case "rare":
-				weaponMatk = 52;
-				weaponCdRate = 8;
+				weaponEquip.matk = 52;
+				weaponEquip.cdred = 8;
 				break;
 				
 				case "epic":
-				weaponMatk = 70;
-				weaponCdRate = 10;
+				weaponEquip.matk = 70;
+				weaponEquip.cdred = 10;
 				break;
 			}
 		break;
@@ -257,34 +249,24 @@ function calculate(){
 	
 	var helmetName = document.getElementById("helmet").value;
 	var helmetRarity = document.getElementById("helmetRarity").value;
-	
-	var helmetPatk = 0;
-	var helmetMatk = 0;
+	var helmetEquip = new Equip(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
 	var helmetMatkPercent = 0;
-	var helmetMaxHp = 0;
-	var helmetCdRate = 0;
-	var helmetPdef = 0;
-	var helmetMdef = 0;
-	var helmetMaxMp = 0;
-	var helmetMregen = 0;
-	var helmetAtkspd = 0;
-	var helmetCritRate = 0;
 	
 	switch(helmetName){
 		case "etherCrown":
 			switch(helmetRarity){
 				case "uncommon":
-				helmetMatk = 15;
+				helmetEquip.matk = 15;
 				helmetMatkPercent = 10;
 				break;
 				
 				case "rare":
-				helmetMatk = 22;
+				helmetEquip.matk = 22;
 				helmetMatkPercent = 15;
 				break;
 				
 				case "epic":
-				helmetMatk = 30;
+				helmetEquip.matk = 30;
 				helmetMatkPercent = 20;
 				break;
 			}
@@ -293,18 +275,18 @@ function calculate(){
 		case "giantsHelm":
 			switch(helmetRarity){
 				case "uncommon":
-				helmetMaxHp = 200;
-				helmetCdRate = 5;
+				helmetEquip.hp = 200;
+				helmetEquip.cdred = 5;
 				break;
 				
 				case "rare":
-				helmetMaxHp = 300;
-				helmetCdRate = 8;
+				helmetEquip.hp = 300;
+				helmetEquip.cdred = 8;
 				break;
 				
 				case "epic":
-				helmetMaxHp = 400;
-				helmetCdRate = 10;
+				helmetEquip.hp = 400;
+				helmetEquip.cdred = 10;
 				break;
 			}
 		break;
@@ -312,21 +294,21 @@ function calculate(){
 		case "mithrilHelm":
 			switch(helmetRarity){
 				case "uncommon":
-				helmetMatk = 15;
-				helmetPdef = 15;
-				helmetMdef = 15;
+				helmetEquip.matk = 15;
+				helmetEquip.pdef = 15;
+				helmetEquip.mdef = 15;
 				break;
 				
 				case "rare":
-				helmetMatk = 22;
-				helmetPdef = 22;
-				helmetMdef = 22;
+				helmetEquip.matk = 22;
+				helmetEquip.pdef = 22;
+				helmetEquip.mdef = 22;
 				break;
 				
 				case "epic":
-				helmetMatk = 30;
-				helmetPdef = 30;
-				helmetMdef = 30;
+				helmetEquip.matk = 30;
+				helmetEquip.pdef = 30;
+				helmetEquip.mdef = 30;
 				break;
 			}
 		break;
@@ -334,21 +316,21 @@ function calculate(){
 		case "sagesCrown":
 			switch(helmetRarity){
 				case "uncommon":
-				helmetMatk = 20;
-				helmetMaxMp = 100;
-				helmetMregen = 1;
+				helmetEquip.matk = 20;
+				helmetEquip.mp = 100;
+				helmetEquip.mpregen = 1;
 				break;
 				
 				case "rare":
-				helmetMatk = 30;
-				helmetMaxMp = 150;
-				helmetMregen = 1.5;
+				helmetEquip.matk = 30;
+				helmetEquip.mp = 150;
+				helmetEquip.mpregen = 1.5;
 				break;
 				
 				case "epic":
-				helmetMatk = 40;
-				helmetMaxMp = 200;
-				helmetMregen = 2;
+				helmetEquip.matk = 40;
+				helmetEquip.mp = 200;
+				helmetEquip.mpregen = 2;
 				break;
 			}
 		break;
@@ -356,18 +338,18 @@ function calculate(){
 		case "snipersHat":
 			switch(helmetRarity){
 				case "uncommon":
-				helmetPatk = 10;
-				helmetCritRate = 10;
+				helmetEquip.patk = 10;
+				helmetEquip.critrate = 10;
 				break;
 				
 				case "rare":
-				helmetPatk = 15;
-				helmetCritRate = 15;
+				helmetEquip.patk = 15;
+				helmetEquip.critrate = 15;
 				break;
 				
 				case "epic":
-				helmetPatk = 20;
-				helmetCritRate = 20;
+				helmetEquip.patk = 20;
+				helmetEquip.critrate = 20;
 				break;
 			}
 		break;
@@ -375,21 +357,21 @@ function calculate(){
 		case "steelHelm":
 			switch(helmetRarity){
 				case "uncommon":
-				helmetPdef = 20;
-				helmetMdef = 20;
-				helmetMaxhp = 100;
+				helmetEquip.pdef = 20;
+				helmetEquip.mdef = 20;
+				helmetEquip.hp = 100;
 				break;
 				
 				case "rare":
-				helmetPdef = 30;
-				helmetMdef = 30;
-				helmetMaxhp = 150;
+				helmetEquip.pdef = 30;
+				helmetEquip.mdef = 30;
+				helmetEquip.hp = 150;
 				break;
 				
 				case "epic":
-				helmetPdef = 40;
-				helmetMdef = 40;
-				helmetMaxhp = 200;
+				helmetEquip.pdef = 40;
+				helmetEquip.mdef = 40;
+				helmetEquip.hp = 200;
 				break;
 			}
 		break;
@@ -397,22 +379,24 @@ function calculate(){
 	}
 	var armorName = document.getElementById("armor").value;
 	var armorRarity = document.getElementById("armorRarity").value;
+	var armorEquip = new Equip(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
+	var armorMatkPercent = 0;
 	
 	switch(armorName){
 		case "etherRobe":
 			switch(armorRarity){
 				case "uncommon":
-				armorMatk = 40;
+				armorEquip.matk = 40;
 				armorMatkPercent = 5;
 				break;
 				
 				case "rare":
-				armorMatk = 60;
+				armorEquip.matk = 60;
 				armorMatkPercent = 8;
 				break;
 				
 				case "epic":
-				armorMatk = 80;
+				armorEquip.matk = 80;
 				armorMatkPercent = 10;
 				break;
 			}
@@ -421,18 +405,125 @@ function calculate(){
 		case "giantsArmor":
 			switch(armorRarity){
 				case "uncommon":
-				armorMaxHp = 275;
-				armorCdRate = 5;
+				armorEquip.hp = 275;
+				armorEquip.cdred = 5;
 				break;
 				
 				case "rare":
-				armorMaxHp = 412;
-				armorCdRate = 8;
+				armorEquip.hp = 412;
+				armorEquip.cdred = 8;
 				break;
 				
 				case "epic":
-				armorMaxHp = 550;
-				armorCdRate = 10;
+				armorEquip.hp = 550;
+				armorEquip.cdred = 10;
+				break;
+			}
+		break;
+		
+		case "gladiatorsArmor":
+			switch(armorRarity){
+				case "uncommon":
+				armorEquip.patk = 22;
+				armorEquip.pdef = 12;
+				armorEquip.mdef = 12;
+				break;
+				
+				case "rare":
+				armorEquip.patk = 33;
+				armorEquip.pdef = 18;
+				armorEquip.mdef = 18;
+				break;
+				
+				case "epic":
+				armorEquip.patk = 45;
+				armorEquip.pdef = 25;
+				armorEquip.mdef = 25;
+				break;
+			}
+		break;
+		
+		case "huntersArmor":
+			switch(armorRarity){
+				case "uncommon":
+				armorEquip.patk = 20;
+				armorEquip.atkspd = 15;
+				armorEquip.movspd = 3;
+				break;
+				
+				case "rare":
+				armorEquip.patk = 30;
+				armorEquip.atkspd = 23;
+				armorEquip.movspd = 4;
+				break;
+				
+				case "epic":
+				armorEquip.patk = 40;
+				armorEquip.atkspd = 30;
+				armorEquip.movspd = 5;
+				break;
+			}
+		break;
+		
+		case "sagesRobe":
+			switch(armorRarity){
+				case "uncommon":
+				armorEquip.matk = 30;
+				armorEquip.cdred = 5;
+				break;
+				
+				case "rare":
+				armorEquip.matk = 45;
+				armorEquip.cdred = 8;
+				break;
+				
+				case "epic":
+				armorEquip.matk = 60;
+				armorEquip.cdred = 10;
+				break;
+			}
+		break;
+		
+		case "snipersArmor":
+			switch(armorRarity){
+				case "uncommon":
+				armorEquip.patk = 20;
+				armorEquip.movspd = 3;
+				armorEquip.critrate = 10;
+				break;
+				
+				case "rare":
+				armorEquip.patk = 30;
+				armorEquip.movspd = 4;
+				armorEquip.critrate = 15;
+				break;
+				
+				case "epic":
+				armorEquip.patk = 40;
+				armorEquip.movspd = 5;
+				armorEquip.critrate = 20;
+				break;
+			}
+		break;
+		
+		case "steelArmor":
+			switch(armorRarity){
+				case "uncommon":
+				armorEquip.pdef = 36;
+				armorEquip.mdef = 36;
+				armorEquip.hp = 125;
+				break;
+				
+				case "rare":
+				armorEquip.pdef = 48;
+				armorEquip.mdef = 48;
+				armorEquip.hp = 187;
+				break;
+				
+				case "epic":
+				armorEquip.pdef = 60;
+				armorEquip.mdef = 60;
+				armorEquip.hp = 250;
 				break;
 			}
 		break;
@@ -441,9 +532,10 @@ function calculate(){
 	
 	var gloveName = document.getElementById("gloves").value;
 	var gloveRarity = document.getElementById("gloveRarity").value;
+	var gloveEquip = new Equip(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
 	
 	switch(gloveName){
-		case "etherCrown":
+		case "bloodyGloves":
 			switch(helmetRarity){
 				case "uncommon":
 				//dostuff
@@ -499,20 +591,19 @@ function calculate(){
 			}
 	}
 	
-	champion.patk = (patkBase + patkGrowth*level-patkGrowth + weaponPatk + helmetPatk);
-	champion.matk = (matkBase + weaponMatk) * (1 + helmetMatkPercent/100);
-	champion.pdef = pdefBase + pdefGrowth*level-pdefGrowth + weaponPdef + helmetPdef;
-	champion.mdef = mdefBase + mdefGrowth*level-mdefGrowth + weaponMdef + helmetMdef;
+	champion.patk = (patkBase + patkGrowth*level-patkGrowth + weaponEquip.patk + helmetPatk);
+	champion.matk = (matkBase + weaponEquip.matk) * (1 + helmetMatkPercent/100);
+	champion.pdef = pdefBase + pdefGrowth*level-pdefGrowth + weaponEquip.pdef + helmetPdef;
+	champion.mdef = mdefBase + mdefGrowth*level-mdefGrowth + weaponEquip.mdef + helmetMdef;
 	
 	champion.hp = hpBase + hpGrowth*level-hpGrowth + helmetMaxHp;
 	champion.mp = mpBase + mpGrowth*level-mpGrowth + helmetMaxMp;
-	champion.atkspd = atkspdBase + atkspdGrowth*level-atkspdGrowth + weaponAtkspd + helmetAtkspd;
-	champion.critrate = weaponCritrate;
+	champion.atkspd = atkspdBase + atkspdGrowth*level-atkspdGrowth + weaponEquip.atkspd + helmetAtkspd;
+	champion.critrate = weaponEquip.critrate + helmetCritRate;
 	
-	champion.movspd = weaponMovspd;
-	champion.ppenPercent = weaponPpen;
-	champion.critrate = weaponCritrate + helmetCritRate;
-	champion.cdred = weaponCdRate;
+	champion.movspd = weaponEquip.movspd;
+	champion.ppenPercent = weaponEquip.ppenPercent;
+	champion.cdred = weaponEquip.cdred;
 	
 	var i = 0;
 	var j = 0;
