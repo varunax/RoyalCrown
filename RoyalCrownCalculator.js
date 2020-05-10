@@ -5,31 +5,44 @@ var champion = {
 	ppen:0,ppenPercent:0,mpen:0,mpenPercent:0
 };
 
-function Equip(
-val1, val2, val3, val4,
-val5, val6, val7, val8,
-val9, val10, val11, val12,
-val13, val14, val15, val16){
+function Equip(){
+	this.patk = 0;
+	this.matk = 0;
+	this.pdef = 0;
+	this.mdef = 0;
 	
-	this.patk = val1;
-	this.matk = val2;
-	this.pdef = val3;
-	this.mdef = val4;
+	this.hp = 0;
+	this.mp = 0;
+	this.atkspd = 0;
+	this.critrate = 0;
 	
-	this.hp = val5;
-	this.mp = val6;
-	this.atkspd = val7;
-	this.critrate = val8;
+	this.cdred = 0;
+	this.hpregen = 0;
+	this.movspd = 0;
+	this.mpregen = 0;
 	
-	this.cdred = val9;
-	this.hpregen = val10;
-	this.movspd = val11;
-	this.mpregen = val12;
+	this.ppen = 0;
+	this.ppenPercent = 0;
+	this.mpen = 0;
+	this.mpenPercent = 0;
+}
+
+function BaseStats(){
+	this.patk = 0;
+	this.patkGrowth = 0;
+	this.matk = 0;
+	this.matkGrowth = 0;
+	this.pdef = 0;
+	this.pdefGrowth = 0;
+	this.mdef = 0;
 	
-	this.ppen = val13;
-	this.ppenPercent = val14;
-	this.mpen = val15;
-	this.mpenPercent = val16;
+	this.mdefGrowth = 0;
+	this.hp = 0;
+	this.hpGrowth = 0;
+	this.mp = 0;
+	this.mpGrowth = 0;
+	this.atkspd = 0;
+	this.atkspdGrowth = 0;
 }
 
 function initStats(){
@@ -39,10 +52,7 @@ function initStats(){
 	"cdredStat","hpregenStat","movspdStat","mpregenStat",
 	"ppenStat","ppenPercentStat","mpenStat","mpenPercentStat"
 	];
-
-	for(i in stats){
-		document.getElementById(stats[i]).innerHTML = 0;
-	}
+	for(i in stats){document.getElementById(stats[i]).innerHTML = 0;}
 }
 
 function calculate(){
@@ -55,27 +65,42 @@ function calculate(){
 
 	var championName = document.getElementById("champion").value;
 	var level = Number(document.getElementById("level").value);
-	
-	if(championName == "none" || level == 0){ initStats();return;}
-	
-	var patkBase = 0;
-	var patkGrowth = 0;
-	var matkBase = 0;
-	var matkGrowth = 0;
-	var pdefBase = 0;
-	var pdefGrowth = 0;
-	var mdefBase = 0;
-	var mdefGrowth = 0;
-	var hpBase = 0;
-	var hpGrowth = 0;
-	var mpBase = 0;
-	var mpGrowth = 0;
-	var atkspdBase = 0;
-	var atkspdGrowth = 0;
+	var baseStat = new BaseStats();
+	if(championName == "none" || level == 0){initStats(); return;};
 	
 	switch(championName){
-		case "Alicia":
-		setStats(130,3,0,0,25,3.5,25,1,1500,80,500,40,0,1);
+		case "alicia":
+		baseStat.patk = 130;
+		baseStat.patkGrowth = 3;
+		baseStat.pdef = 25;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 25;
+		baseStat.mdefGrowth = 1;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
+		break;
+		
+		case "violet":
+		baseStat.patk = 130;
+		baseStat.patkGrowth = 4;
+		baseStat.pdef = 20;
+		baseStat.pdefGrowth = 3.5;
+		baseStat.matk = 0;
+		baseStat.matkGrowth = 0;
+		baseStat.mdef = 20;
+		baseStat.mdefGrowth = 0.5;
+		baseStat.hp = 1500;
+		baseStat.hpGrowth = 80;
+		baseStat.mp = 500;
+		baseStat.mpGrowth = 40;
+		baseStat.atkspd = 0;
+		baseStat.atkspdGrowth = 1;
 		break;
 		
 		default:
@@ -84,7 +109,7 @@ function calculate(){
 	
 	var weaponName = document.getElementById("weapon").value;
 	var weaponRarity = document.getElementById("weaponRarity").value;
-	var weaponEquip = new Equip(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
+	var weaponEquip = new Equip();
 	
 	switch(weaponName){
 		case "steelSword":
@@ -249,7 +274,7 @@ function calculate(){
 	
 	var helmetName = document.getElementById("helmet").value;
 	var helmetRarity = document.getElementById("helmetRarity").value;
-	var helmetEquip = new Equip(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
+	var helmetEquip = new Equip();
 	var helmetMatkPercent = 0;
 	
 	switch(helmetName){
@@ -379,7 +404,7 @@ function calculate(){
 	}
 	var armorName = document.getElementById("armor").value;
 	var armorRarity = document.getElementById("armorRarity").value;
-	var armorEquip = new Equip(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
+	var armorEquip = new Equip();
 	var armorMatkPercent = 0;
 	
 	switch(armorName){
@@ -532,78 +557,917 @@ function calculate(){
 	
 	var gloveName = document.getElementById("gloves").value;
 	var gloveRarity = document.getElementById("gloveRarity").value;
-	var gloveEquip = new Equip(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
+	var gloveEquip = new Equip();
 	
 	switch(gloveName){
 		case "bloodyGloves":
-			switch(helmetRarity){
+			switch(gloveRarity){
 				case "uncommon":
-				//dostuff
+				gloveEquip.patk = 15;
 				break;
 				
 				case "rare":
-				//dostuff
+				gloveEquip.patk = 22;
 				break;
 				
 				case "epic":
-				//dostuff
+				gloveEquip.patk = 30;
 				break;
 			}
+		break;
+		
+		case "gladiatorsGloves":
+			switch(gloveRarity){
+				case "uncommon":
+				gloveEquip.patk = 15;
+				gloveEquip.pdef = 7;
+				gloveEquip.mdef = 7;
+				break;
+				
+				case "rare":
+				gloveEquip.patk = 22;
+				gloveEquip.pdef = 11;
+				gloveEquip.mdef = 11;
+				break;
+				
+				case "epic":
+				gloveEquip.patk = 30;
+				gloveEquip.pdef = 15;
+				gloveEquip.mdef = 15;
+				break;
+			}
+		break;
+		
+		case "huntersGloves":
+			switch(gloveRarity){
+				case "uncommon":
+				gloveEquip.patk = 10;
+				gloveEquip.atkspd = 15;
+				gloveEquip.movspd = 3;
+				break;
+				
+				case "rare":
+				gloveEquip.patk = 15;
+				gloveEquip.atkspd = 23;
+				gloveEquip.movspd = 4;
+				break;
+				
+				case "epic":
+				gloveEquip.patk = 20;
+				gloveEquip.atkspd = 30;
+				gloveEquip.movspd = 5;
+				break;
+			}
+		break;
+		
+		case "ironGauntlet":
+			switch(gloveRarity){
+				case "uncommon":
+				gloveEquip.pdef = 15;
+				gloveEquip.mdef = 15;
+				gloveEquip.cdred = 5;
+				break;
+				
+				case "rare":
+				gloveEquip.pdef = 22;
+				gloveEquip.mdef = 22;
+				gloveEquip.cdred = 8;
+				break;
+				
+				case "epic":
+				gloveEquip.pdef = 30;
+				gloveEquip.mdef = 30;
+				gloveEquip.cdred = 10;
+				break;
+			}
+		break;
+		
+		case "magesGloves":
+			switch(gloveRarity){
+				case "uncommon":
+				gloveEquip.matk = 15;
+				gloveEquip.mpenPercent = 10;
+				break;
+				
+				case "rare":
+				gloveEquip.matk = 22;
+				gloveEquip.mpenPercent = 15;
+				break;
+				
+				case "epic":
+				gloveEquip.matk = 30;
+				gloveEquip.mpenPercent = 20;
+				break;
+			}
+		break;
+		
+		case "sagesGloves":
+			switch(gloveRarity){
+				case "uncommon":
+				gloveEquip.matk = 15;
+				gloveEquip.cdred = 5;
+				break;
+				
+				case "rare":
+				gloveEquip.matk = 22;
+				gloveEquip.cdred = 8;
+				break;
+				
+				case "epic":
+				gloveEquip.matk = 30;
+				gloveEquip.cdred = 10;
+				break;
+			}
+		break;
+		
+		case "snipersGloves":
+			switch(gloveRarity){
+				case "uncommon":
+				gloveEquip.patk = 10;
+				gloveEquip.critrate = 15;
+				break;
+				
+				case "rare":
+				gloveEquip.patk = 15;
+				gloveEquip.critrate = 23;
+				break;
+				
+				case "epic":
+				gloveEquip.patk = 20;
+				gloveEquip.critrate = 30;
+				break;
+			}
+		break;
+		
 	}
 	
 	var bootName = document.getElementById("boots").value;
 	var bootRarity = document.getElementById("bootRarity").value;
+	var bootEquip = new Equip();
 	
 	switch(bootName){
-		case "etherCrown":
-			switch(helmetRarity){
+		case "etherBoots":
+			switch(bootRarity){
 				case "uncommon":
-				//dostuff
+				bootEquip.movspd = 15;
+				bootEquip.mpen = 12;
 				break;
 				
 				case "rare":
-				//dostuff
+				bootEquip.movspd = 22;
+				bootEquip.mpen = 18;
 				break;
 				
 				case "epic":
-				//dostuff
+				bootEquip.movspd = 30;
+				bootEquip.mpen = 25;
 				break;
 			}
+		break;
+		
+		case "huntersBoots":
+			switch(bootRarity){
+				case "uncommon":
+				bootEquip.movspd = 15;
+				bootEquip.atkspd = 15;
+				break;
+				
+				case "rare":
+				bootEquip.movspd = 23;
+				bootEquip.atkspd = 23;
+				break;
+				
+				case "epic":
+				bootEquip.movspd = 30;
+				bootEquip.atkspd = 30;
+				break;
+			}
+		break;
+		
+		case "sagesBoots":
+			switch(bootRarity){
+				case "uncommon":
+				bootEquip.movspd = 15;
+				bootEquip.cdred = 8;
+				break;
+				
+				case "rare":
+				bootEquip.movspd = 23;
+				bootEquip.cdred = 11;
+				break;
+				
+				case "epic":
+				bootEquip.movspd = 30;
+				bootEquip.cdred = 15;
+				break;
+			}
+		break;
+		
+		case "steelBoots":
+			switch(bootRarity){
+				case "uncommon":
+				bootEquip.movspd = 15;
+				bootEquip.pdef = 15;
+				bootEquip.mdef = 15;
+				break;
+				
+				case "rare":
+				bootEquip.movspd = 22;
+				bootEquip.pdef = 22;
+				bootEquip.mdef = 22;
+				break;
+				
+				case "epic":
+				bootEquip.movspd = 30;
+				bootEquip.pdef = 30;
+				bootEquip.mdef = 30;
+				break;
+			}
+		break;
 	}
 	
 	var accName = document.getElementById("accessory").value;
 	var accRarity = document.getElementById("accRarity").value;
+	var accEquip = new Equip();
 	
 	switch(accName){
-		case "etherCrown":
-			switch(helmetRarity){
+		case "runeStatue":
+			switch(accRarity){
 				case "uncommon":
-				//dostuff
+				accEquip.hp = 250;
 				break;
 				
 				case "rare":
-				//dostuff
+				accEquip.hp = 375;
 				break;
 				
 				case "epic":
-				//dostuff
+				accEquip.hp = 500;
 				break;
 			}
+		break;
+		
+		case "jaggedAccessory":
+			switch(accRarity){
+				case "uncommon":
+				accEquip.atkspd = 10;
+				accEquip.movspd = 3;
+				accEquip.critrate = 10;
+				break;
+				
+				case "rare":
+				accEquip.atkspd = 15;
+				accEquip.movspd = 4;
+				accEquip.critrate = 15;
+				break;
+				
+				case "epic":
+				accEquip.atkspd = 20;
+				accEquip.movspd = 5;
+				accEquip.critrate = 20;
+				break;
+			}
+		break;
+		
+		case "statueOfLife":
+			switch(accRarity){
+				case "uncommon":
+				accEquip.hpregen = 6;
+				accEquip.mpregen = 1;
+				break;
+				
+				case "rare":
+				accEquip.hpregen = 9;
+				accEquip.mpregen = 1.5;
+				break;
+				
+				case "epic":
+				accEquip.hpregen = 10;
+				accEquip.mpregen = 2;
+				break;
+			}
+		break;
+		
+		case "theAwakening":
+			switch(accRarity){
+				case "uncommon":
+				accEquip.cdred = 10;
+				break;
+				
+				case "rare":
+				accEquip.cdred = 15;
+				break;
+				
+				case "epic":
+				accEquip.cdred = 20;
+				break;
+			}
+		break;
+		
+		case "voodooDoll":
+			switch(accRarity){
+				case "uncommon":
+				accEquip.mpen = 25;
+				break;
+				
+				case "rare":
+				accEquip.mpen = 37;
+				break;
+				
+				case "epic":
+				accEquip.mpen = 50;
+				break;
+			}
+		break;
+		
+		case "manaCrystal":
+			switch(accRarity){
+				case "uncommon":
+				accEquip.matk = 30;
+				accEquip.mp = 100;
+				break;
+				
+				case "rare":
+				accEquip.matk = 45;
+				accEquip.mp = 150;
+				break;
+				
+				case "epic":
+				accEquip.matk = 60;
+				accEquip.mp = 200;
+				break;
+			}
+		break;
 	}
 	
-	champion.patk = (patkBase + patkGrowth*level-patkGrowth + weaponEquip.patk + helmetEquip.patk);
-	champion.matk = (matkBase + weaponEquip.matk) * (1 + helmetMatkPercent/100);
-	champion.pdef = pdefBase + pdefGrowth*level-pdefGrowth + weaponEquip.pdef + helmetEquip.pdef;
-	champion.mdef = mdefBase + mdefGrowth*level-mdefGrowth + weaponEquip.mdef + helmetEquip.mdef;
+	var weaponRuneName = document.getElementById("weaponRune").value;
+	var weaponRuneRarity = document.getElementById("weaponRuneRarity").value;
+	var weaponRuneEquip = new Equip();
 	
-	champion.hp = hpBase + hpGrowth*level-hpGrowth + helmetEquip.hp;
-	champion.mp = mpBase + mpGrowth*level-mpGrowth + helmetEquip.mp;
-	champion.atkspd = atkspdBase + atkspdGrowth*level-atkspdGrowth + weaponEquip.atkspd + helmetEquip.atkspd;
-	champion.critrate = weaponEquip.critrate + helmetEquip.critrate;
+	switch(weaponRuneName){
+		case "powerRune":
+			switch(weaponRuneRarity){
+				case "uncommon":
+				weaponRuneEquip.patk = 4;
+				break;
+				
+				case "rare":
+				weaponRuneEquip.patk = 6;
+				break;
+				
+				case "epic":
+				weaponRuneEquip.patk = 8;
+				break;
+			}
+		break;
+		
+		case "deathRune":
+			switch(weaponRuneRarity){
+				case "uncommon":
+				weaponRuneEquip.critrate = 2;
+				break;
+				
+				case "rare":
+				weaponRuneEquip.critrate = 4;
+				break;
+				
+				case "epic":
+				weaponRuneEquip.critrate = 5;
+				break;
+			}
+		break;
+		
+		case "speedRune":
+			switch(weaponRuneRarity){
+				case "uncommon":
+				weaponRuneEquip.atkspd = 6;
+				break;
+				
+				case "rare":
+				weaponRuneEquip.atkspd = 9;
+				break;
+				
+				case "epic":
+				weaponRuneEquip.atkspd = 12;
+				break;
+			}
+		break;
+		
+		case "defenseRune":
+			switch(weaponRuneRarity){
+				case "uncommon":
+				weaponRuneEquip.pdef = 6;
+				weaponRuneEquip.mdef = 6;
+				break;
+				
+				case "rare":
+				weaponRuneEquip.pdef = 9;
+				weaponRuneEquip.mdef = 9;
+				break;
+				
+				case "epic":
+				weaponRuneEquip.pdef = 12;
+				weaponRuneEquip.mdef = 12;
+				break;
+			}
+		break;
+		
+		case "healthRune":
+			switch(weaponRuneRarity){
+				case "uncommon":
+				weaponRuneEquip.hp = 50;
+				break;
+				
+				case "rare":
+				weaponRuneEquip.hp = 75;
+				break;
+				
+				case "epic":
+				weaponRuneEquip.hp = 100;
+				break;
+			}
+		break;
+		
+		case "manaRune":
+			switch(weaponRuneRarity){
+				case "uncommon":
+				weaponRuneEquip.matk = 6;
+				break;
+				
+				case "rare":
+				weaponRuneEquip.matk = 9;
+				break;
+				
+				case "epic":
+				weaponRuneEquip.matk = 12;
+				break;
+			}
+		break;
+	}
 	
-	champion.movspd = weaponEquip.movspd;
-	champion.ppenPercent = weaponEquip.ppenPercent;
-	champion.cdred = weaponEquip.cdred;
+	var helmetRuneName = document.getElementById("helmetRune").value;
+	var helmetRuneRarity = document.getElementById("helmetRuneRarity").value;
+	var helmetRuneEquip = new Equip();
+	
+	switch(helmetRuneName){
+		case "powerRune":
+			switch(helmetRuneRarity){
+				case "uncommon":
+				helmetRuneEquip.patk = 4;
+				break;
+				
+				case "rare":
+				helmetRuneEquip.patk = 6;
+				break;
+				
+				case "epic":
+				helmetRuneEquip.patk = 8;
+				break;
+			}
+		break;
+		
+		case "deathRune":
+			switch(helmetRuneRarity){
+				case "uncommon":
+				helmetRuneEquip.critrate = 2;
+				break;
+				
+				case "rare":
+				helmetRuneEquip.critrate = 4;
+				break;
+				
+				case "epic":
+				helmetRuneEquip.critrate = 5;
+				break;
+			}
+		break;
+		
+		case "speedRune":
+			switch(helmetRuneRarity){
+				case "uncommon":
+				helmetRuneEquip.atkspd = 6;
+				break;
+				
+				case "rare":
+				helmetRuneEquip.atkspd = 9;
+				break;
+				
+				case "epic":
+				helmetRuneEquip.atkspd = 12;
+				break;
+			}
+		break;
+		
+		case "defenseRune":
+			switch(helmetRuneRarity){
+				case "uncommon":
+				helmetRuneEquip.pdef = 6;
+				helmetRuneEquip.mdef = 6;
+				break;
+				
+				case "rare":
+				helmetRuneEquip.pdef = 9;
+				helmetRuneEquip.mdef = 9;
+				break;
+				
+				case "epic":
+				helmetRuneEquip.pdef = 12;
+				helmetRuneEquip.mdef = 12;
+				break;
+			}
+		break;
+		
+		case "healthRune":
+			switch(helmetRuneRarity){
+				case "uncommon":
+				helmetRuneEquip.hp = 50;
+				break;
+				
+				case "rare":
+				helmetRuneEquip.hp = 75;
+				break;
+				
+				case "epic":
+				helmetRuneEquip.hp = 100;
+				break;
+			}
+		break;
+		
+		case "manaRune":
+			switch(helmetRuneRarity){
+				case "uncommon":
+				helmetRuneEquip.matk = 6;
+				break;
+				
+				case "rare":
+				helmetRuneEquip.matk = 9;
+				break;
+				
+				case "epic":
+				helmetRuneEquip.matk = 12;
+				break;
+			}
+		break;
+	}
+	
+	var armorRuneName = document.getElementById("armorRune").value;
+	var armorRuneRarity = document.getElementById("armorRuneRarity").value;
+	var armorRuneEquip = new Equip();
+	
+	switch(armorRuneName){
+		case "powerRune":
+			switch(armorRuneRarity){
+				case "uncommon":
+				armorRuneEquip.patk = 4;
+				break;
+				
+				case "rare":
+				armorRuneEquip.patk = 6;
+				break;
+				
+				case "epic":
+				armorRuneEquip.patk = 8;
+				break;
+			}
+		break;
+		
+		case "deathRune":
+			switch(armorRuneRarity){
+				case "uncommon":
+				armorRuneEquip.critrate = 2;
+				break;
+				
+				case "rare":
+				armorRuneEquip.critrate = 4;
+				break;
+				
+				case "epic":
+				armorRuneEquip.critrate = 5;
+				break;
+			}
+		break;
+		
+		case "speedRune":
+			switch(armorRuneRarity){
+				case "uncommon":
+				armorRuneEquip.atkspd = 6;
+				break;
+				
+				case "rare":
+				armorRuneEquip.atkspd = 9;
+				break;
+				
+				case "epic":
+				armorRuneEquip.atkspd = 12;
+				break;
+			}
+		break;
+		
+		case "defenseRune":
+			switch(armorRuneRarity){
+				case "uncommon":
+				armorRuneEquip.pdef = 6;
+				armorRuneEquip.mdef = 6;
+				break;
+				
+				case "rare":
+				armorRuneEquip.pdef = 9;
+				armorRuneEquip.mdef = 9;
+				break;
+				
+				case "epic":
+				armorRuneEquip.pdef = 12;
+				armorRuneEquip.mdef = 12;
+				break;
+			}
+		break;
+		
+		case "healthRune":
+			switch(armorRuneRarity){
+				case "uncommon":
+				armorRuneEquip.hp = 50;
+				break;
+				
+				case "rare":
+				armorRuneEquip.hp = 75;
+				break;
+				
+				case "epic":
+				armorRuneEquip.hp = 100;
+				break;
+			}
+		break;
+		
+		case "manaRune":
+			switch(armorRuneRarity){
+				case "uncommon":
+				armorRuneEquip.matk = 6;
+				break;
+				
+				case "rare":
+				armorRuneEquip.matk = 9;
+				break;
+				
+				case "epic":
+				armorRuneEquip.matk = 12;
+				break;
+			}
+		break;
+	}
+	
+	var gloveRuneName = document.getElementById("gloveRune").value;
+	var gloveRuneRarity = document.getElementById("gloveRuneRarity").value;
+	var gloveRuneEquip = new Equip();
+	
+	switch(gloveRuneName){
+		case "powerRune":
+			switch(gloveRuneRarity){
+				case "uncommon":
+				gloveRuneEquip.patk = 4;
+				break;
+				
+				case "rare":
+				gloveRuneEquip.patk = 6;
+				break;
+				
+				case "epic":
+				gloveRuneEquip.patk = 8;
+				break;
+			}
+		break;
+		
+		case "deathRune":
+			switch(gloveRuneRarity){
+				case "uncommon":
+				gloveRuneEquip.critrate = 2;
+				break;
+				
+				case "rare":
+				gloveRuneEquip.critrate = 4;
+				break;
+				
+				case "epic":
+				gloveRuneEquip.critrate = 5;
+				break;
+			}
+		break;
+		
+		case "speedRune":
+			switch(gloveRuneRarity){
+				case "uncommon":
+				gloveRuneEquip.atkspd = 6;
+				break;
+				
+				case "rare":
+				gloveRuneEquip.atkspd = 9;
+				break;
+				
+				case "epic":
+				gloveRuneEquip.atkspd = 12;
+				break;
+			}
+		break;
+		
+		case "defenseRune":
+			switch(gloveRuneRarity){
+				case "uncommon":
+				gloveRuneEquip.pdef = 6;
+				gloveRuneEquip.mdef = 6;
+				break;
+				
+				case "rare":
+				gloveRuneEquip.pdef = 9;
+				gloveRuneEquip.mdef = 9;
+				break;
+				
+				case "epic":
+				gloveRuneEquip.pdef = 12;
+				gloveRuneEquip.mdef = 12;
+				break;
+			}
+		break;
+		
+		case "healthRune":
+			switch(gloveRuneRarity){
+				case "uncommon":
+				gloveRuneEquip.hp = 50;
+				break;
+				
+				case "rare":
+				gloveRuneEquip.hp = 75;
+				break;
+				
+				case "epic":
+				gloveRuneEquip.hp = 100;
+				break;
+			}
+		break;
+		
+		case "manaRune":
+			switch(gloveRuneRarity){
+				case "uncommon":
+				gloveRuneEquip.matk = 6;
+				break;
+				
+				case "rare":
+				gloveRuneEquip.matk = 9;
+				break;
+				
+				case "epic":
+				gloveRuneEquip.matk = 12;
+				break;
+			}
+		break;
+	}
+	
+	var bootRuneName = document.getElementById("bootRune").value;
+	var bootRuneRarity = document.getElementById("bootRuneRarity").value;
+	var bootRuneEquip = new Equip();
+	
+	switch(bootRuneName){
+		case "powerRune":
+			switch(bootRuneRarity){
+				case "uncommon":
+				bootRuneEquip.patk = 4;
+				break;
+				
+				case "rare":
+				bootRuneEquip.patk = 6;
+				break;
+				
+				case "epic":
+				bootRuneEquip.patk = 8;
+				break;
+			}
+		break;
+		
+		case "deathRune":
+			switch(bootRuneRarity){
+				case "uncommon":
+				bootRuneEquip.critrate = 2;
+				break;
+				
+				case "rare":
+				bootRuneEquip.critrate = 4;
+				break;
+				
+				case "epic":
+				bootRuneEquip.critrate = 5;
+				break;
+			}
+		break;
+		
+		case "speedRune":
+			switch(bootRuneRarity){
+				case "uncommon":
+				bootRuneEquip.atkspd = 6;
+				break;
+				
+				case "rare":
+				bootRuneEquip.atkspd = 9;
+				break;
+				
+				case "epic":
+				bootRuneEquip.atkspd = 12;
+				break;
+			}
+		break;
+		
+		case "defenseRune":
+			switch(bootRuneRarity){
+				case "uncommon":
+				bootRuneEquip.pdef = 6;
+				bootRuneEquip.mdef = 6;
+				break;
+				
+				case "rare":
+				bootRuneEquip.pdef = 9;
+				bootRuneEquip.mdef = 9;
+				break;
+				
+				case "epic":
+				bootRuneEquip.pdef = 12;
+				bootRuneEquip.mdef = 12;
+				break;
+			}
+		break;
+		
+		case "healthRune":
+			switch(bootRuneRarity){
+				case "uncommon":
+				bootRuneEquip.hp = 50;
+				break;
+				
+				case "rare":
+				bootRuneEquip.hp = 75;
+				break;
+				
+				case "epic":
+				bootRuneEquip.hp = 100;
+				break;
+			}
+		break;
+		
+		case "manaRune":
+			switch(bootRuneRarity){
+				case "uncommon":
+				bootRuneEquip.matk = 6;
+				break;
+				
+				case "rare":
+				bootRuneEquip.matk = 9;
+				break;
+				
+				case "epic":
+				bootRuneEquip.matk = 12;
+				break;
+			}
+		break;
+	}
+	
+	var equipList = [
+	weaponEquip, helmetEquip, armorEquip, gloveEquip, bootEquip, accEquip,
+	weaponRuneEquip, helmetRuneEquip, armorRuneEquip, gloveRuneEquip, bootRuneEquip
+	];
+	
+	champion.patk = baseStat.patk + baseStat.patkGrowth*level-baseStat.patkGrowth;
+	for(i in equipList){
+		champion.patk += equipList[i].patk;
+	}
+	
+	champion.matk = baseStat.matk + weaponEquip.matk;
+	for(i in equipList){champion.matk += equipList[i].matk;}
+	champion.matk *= (1 + helmetMatkPercent/100);
+	
+	champion.pdef = baseStat.pdef + baseStat.pdefGrowth*level-baseStat.pdefGrowth;
+	for(i in equipList){champion.pdef += equipList[i].pdef;}
+	
+	champion.mdef = baseStat.mdef + baseStat.mdefGrowth*level-baseStat.mdefGrowth;
+	for(i in equipList){champion.mdef += equipList[i].mdef;}
+	
+	champion.hp = baseStat.hp + baseStat.hpGrowth*level-baseStat.hpGrowth;
+	for(i in equipList){champion.hp += equipList[i].hp;}
+	
+	champion.mp = baseStat.mp + baseStat.mpGrowth*level-baseStat.mpGrowth;
+	for(i in equipList){champion.mp += equipList[i].mp;}
+	
+	champion.atkspd = baseStat.atkspd + baseStat.atkspdGrowth*level-baseStat.atkspdGrowth;
+	for(i in equipList){champion.atkspd += equipList[i].atkspd;}
+	
+	champion.critrate = 0;
+	for(i in equipList){champion.critrate += equipList[i].critrate;}
+	
+	champion.movspd = 0;
+	for(i in equipList){champion.movspd += equipList[i].movspd;}
+		
+	champion.ppenPercent = 0;
+	for(i in equipList){champion.ppenPercent += equipList[i].ppenPercent;}
+	
+	champion.mpenPercent = 0;
+	for(i in equipList){champion.mpenPercent += equipList[i].mpenPercent;}
+	
+	champion.cdred = 0;
+	for(i in equipList){champion.cdred += equipList[i].cdred;}
 	
 	var i = 0;
 	var j = 0;
@@ -611,21 +1475,4 @@ function calculate(){
 	for(j in championStats){
 		document.getElementById(stats[i++]).innerHTML = championStats[j];
 		}
-	
-	function setStats(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12, val13, val14){
-		patkBase = val1;
-		patkGrowth = val2;
-		matkBase = val3;
-		matkGrowth = val4;
-		pdefBase = val5;
-		pdefGrowth = val6;
-		mdefBase = val7;
-		mdefGrowth = val8;
-		hpBase = val9;
-		hpGrowth = val10;
-		mpBase = val11;
-		mpGrowth = val12;
-		atkspdBase = val13;
-		atkspdGrowth = val14;
-	}
 }
