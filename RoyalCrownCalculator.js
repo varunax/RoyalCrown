@@ -591,15 +591,15 @@ function calculate(){
 			}
 	}
 	
-	champion.patk = (patkBase + patkGrowth*level-patkGrowth + weaponEquip.patk + helmetPatk);
+	champion.patk = (patkBase + patkGrowth*level-patkGrowth + weaponEquip.patk + helmetEquip.patk);
 	champion.matk = (matkBase + weaponEquip.matk) * (1 + helmetMatkPercent/100);
-	champion.pdef = pdefBase + pdefGrowth*level-pdefGrowth + weaponEquip.pdef + helmetPdef;
-	champion.mdef = mdefBase + mdefGrowth*level-mdefGrowth + weaponEquip.mdef + helmetMdef;
+	champion.pdef = pdefBase + pdefGrowth*level-pdefGrowth + weaponEquip.pdef + helmetEquip.pdef;
+	champion.mdef = mdefBase + mdefGrowth*level-mdefGrowth + weaponEquip.mdef + helmetEquip.mdef;
 	
-	champion.hp = hpBase + hpGrowth*level-hpGrowth + helmetMaxHp;
-	champion.mp = mpBase + mpGrowth*level-mpGrowth + helmetMaxMp;
-	champion.atkspd = atkspdBase + atkspdGrowth*level-atkspdGrowth + weaponEquip.atkspd + helmetAtkspd;
-	champion.critrate = weaponEquip.critrate + helmetCritRate;
+	champion.hp = hpBase + hpGrowth*level-hpGrowth + helmetEquip.hp;
+	champion.mp = mpBase + mpGrowth*level-mpGrowth + helmetEquip.mp;
+	champion.atkspd = atkspdBase + atkspdGrowth*level-atkspdGrowth + weaponEquip.atkspd + helmetEquip.atkspd;
+	champion.critrate = weaponEquip.critrate + helmetEquip.critrate;
 	
 	champion.movspd = weaponEquip.movspd;
 	champion.ppenPercent = weaponEquip.ppenPercent;
