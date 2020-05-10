@@ -1,2 +1,2 @@
 # RoyalCrown
-stuff for w/e
+Royal Crown Equipment Calculator
