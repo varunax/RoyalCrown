@@ -24,11 +24,12 @@ td, th {
 <p>Created by: Blackheart</p>
 <img src ="logo.jpg" align="center">
 <br>
-<p>Choose your champion:</p>
+<p>Select your champion:</p>
 <label for="champion">Champion:</label>
 <select id="champion" onchange="calculate()">
 	<option value="none"></option>
-	<option value="Alicia">Alicia</option>
+	<option value="alicia">Alicia</option>
+	<option value="violet">Violet</option>
 </select>
 <label for="level">Level</label>
 <select id="level" onchange="calculate()">
@@ -81,7 +82,7 @@ td, th {
 
 </table>
 <br>
-<p>Choose your equipment:</p>
+<p>Select your equipment:</p>
 
 <label for="weapon">Weapon:</label>
 <select id="weapon" onchange="calculate()">
@@ -198,7 +199,7 @@ td, th {
 
 <br>
 
-<p>Choose your runes:</p>
+<p>Select your runes:</p>
 
 <label for="weaponRune">Weapon Rune:</label>
 <select id="weaponRune" onchange="calculate()">
@@ -265,7 +266,7 @@ td, th {
 	<option value="manaRune">Mana Rune</option>
 </select>
 <label for="gloveRuneRarity">Rarity:</label>
-<select id = "gloveRuneRarity">
+<select id = "gloveRuneRarity" onchange="calculate()">
 	<option value="none"></option>
 	<option value="uncommon">Uncommon</option>
 	<option value="rare">Rare</option>
@@ -289,5 +290,11 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </body>
 </html>
