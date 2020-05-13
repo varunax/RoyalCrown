@@ -3,8 +3,15 @@ var champion = {
 	hp:0,mp:0,atkspd:0,critrate:0,
 	cdred:0,hpregen:0,movspd:0,mpregen:0,
 	ppen:0,ppenPercent:0,mpen:0,mpenPercent:0
-};
-
+	};
+	
+var stats = [
+	"patkStat","matkStat","pdefStat","mdefStat",
+	"hpStat","mpStat","atkspdStat","critrateStat",
+	"cdredStat","hpregenStat","movspdStat","mpregenStat",
+	"ppenStat","ppenPercentStat","mpenStat","mpenPercentStat"
+	];
+	
 function Equip(){
 	this.patk = 0;
 	this.matk = 0;
@@ -46,27 +53,13 @@ function BaseStats(){
 	this.atkspdGrowth = 0;
 }
 
-function initStats(){
-	var stats = [
-	"patkStat","matkStat","pdefStat","mdefStat",
-	"hpStat","mpStat","atkspdStat","critrateStat",
-	"cdredStat","hpregenStat","movspdStat","mpregenStat",
-	"ppenStat","ppenPercentStat","mpenStat","mpenPercentStat"
-	];
-	for(i in stats){document.getElementById(stats[i]).innerHTML = 0;}
-}
+function initStats(){for(i in stats){document.getElementById(stats[i]).innerHTML = 0;}}
 
 function calculate(){
-	var stats = [
-	"patkStat","matkStat","pdefStat","mdefStat",
-	"hpStat","mpStat","atkspdStat","critrateStat",
-	"cdredStat","hpregenStat","movspdStat","mpregenStat",
-	"ppenStat","ppenPercentStat","mpenStat","mpenPercentStat"
-	];
-
 	var championName = document.getElementById("champion").value;
 	var level = Number(document.getElementById("level").value);
 	var baseStat = new BaseStats();
+	
 	if(championName == "none" || level == 0){initStats(); return;};
 	
 	switch(championName){
