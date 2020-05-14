@@ -21,11 +21,13 @@ td, th {
 
 <body onload = "initStats()">
 <h1>Royal Crown Equipment Calculator</h1>
-<p>Created by: <b>Blackheart</b></p>
-<p>Also thanks to <b>Tokyo</b> for supplying the guide in which many of the information was derived from.</p>
+<p style="font-family:verdana;font-size:12px">Created by: <b>Blackheart</b></p>
+<p style="font-family:verdana;font-size:12px">Also thanks to <b>Tokyo</b> and others for supplying the guide in which many of the information was derived from.</p>
 <img src ="logo.jpg" align="center">
 <br>
-<p>Select your champion:</p>
+<p style="font-family:arial;font-size:14px"><b>Select your champion:</b></p>
+<table style="width:15%">
+<tr><td>
 <label for="champion">Champion:</label>
 <select id="champion" onchange="calculate()">
 	<option value="none"></option>
@@ -44,9 +46,8 @@ td, th {
 	<option value="bastine">Bastine</option>
 	<option value="sonya">Sonya</option>
 	<option value="rukh">Rukh</option>
-	
-</select>
-<label for="level">Level</label>
+</select></td><td>
+<label for="level">Level:</label>
 <select id="level" onchange="calculate()">
 	<option value ="0"></option>
 	<option value ="1">1</option>
@@ -64,9 +65,10 @@ td, th {
 	<option value ="13">13</option>
 	<option value ="14">14</option>
 	<option value ="15">15</option>
-</select></p>
+</select></p></td></tr>
+</table>
 <br>
-<p>Stats:</p>
+<p style="font-family:arial;font-size:14px"><b>Stats:</b></p>
 
 <table style="width:33%">
 <tr>
@@ -93,11 +95,14 @@ td, th {
 	<td>MAG.PEN: <span id= "mpenStat"></span></td>
 	<td>MAG.PEN%: <span id= "mpenPercentStat"></span></td>
 </tr>
-
 </table>
-<br>
-<p>Select your equipment:</p>
 
+<br>
+
+<p style="font-family:arial;font-size:14px"><b>Select your equipment:</b></p>
+
+<table style="width:0%">
+<tr><td>
 <label for="weapon">Weapon:</label>
 <select id="weapon" onchange="calculate()">
 	<option value="none"></option>
@@ -109,7 +114,7 @@ td, th {
 	<option value="etherStaff">Ether Staff</option>
 	<option value="knightsScepter">Knight's Scepter</option>
 	<option value="sagesStaff">Sage's Staff</option>
-</select>
+</select></td><td>
 <label for="weaponRarity">Rarity:</label>
 <select id = "weaponRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -117,7 +122,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "weaponStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="helmet">Helmet:</label>
 <select id="helmet" onchange="calculate()">
 	<option value="none"></option>
@@ -127,8 +135,7 @@ td, th {
 	<option value="sagesCrown">Sage's Crown</option>
 	<option value="snipersHat">Sniper's Hat</option>
 	<option value="steelHelm">Steel Helm</option>
-		
-</select>
+</select></td><td>
 <label for="helmetRarity">Rarity:</label>
 <select id = "helmetRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -136,7 +143,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "helmetStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="armor">Armor:</label>
 <select id="armor" onchange="calculate()">
 	<option value="none"></option>
@@ -147,8 +157,7 @@ td, th {
 	<option value="sagesRobe">Sage's Robe</option>
 	<option value="snipersArmor">Sniper's Armor</option>
 	<option value="steelArmor">Steel Armor</option>
-  
-</select>
+</select></td><td>
 <label for="armorRarity">Rarity:</label>
 <select id = "armorRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -156,7 +165,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "armorStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="gloves">Gloves:</label>
 <select id="gloves" onchange="calculate()">
 	<option value="none"></option>
@@ -167,7 +179,7 @@ td, th {
 	<option value="magesGloves">Mage's Gloves</option>
 	<option value="sagesGloves">Sage's Gloves</option>
 	<option value="snipersGloves">Sniper's Gloves</option>
-</select>
+</select></td><td>
 
 <label for="gloveRarity">Rarity:</label>
 <select id = "gloveRarity" onchange="calculate()">
@@ -176,7 +188,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "gloveStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="boots">Boots:</label>
 <select id="boots" onchange="calculate()">
 	<option value="none"></option>
@@ -184,7 +199,7 @@ td, th {
 	<option value="huntersBoots">Hunter's Boots</option>
 	<option value="sagesBoots">Sage's Boots</option>
 	<option value="steelBoots">Steel Boots</option>
-</select>
+</select></td><td>
 <label for="bootRarity">Rarity:</label>
 <select id = "bootRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -192,7 +207,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "bootStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="accessory">Accessory:</label>
 <select id="accessory" onchange="calculate()">
 	<option value="none"></option>
@@ -202,7 +220,7 @@ td, th {
 	<option value="theAwakening">The Awakening</option>
 	<option value="voodooDoll">Voodoo Doll</option>
 	<option value="manaCrystal">Mana Crystal</option>
-</select>
+</select></td><td>
 <label for="accRarity">Rarity:</label>
 <select id = "accRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -210,11 +228,15 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "accStats"></span></td>
+</td></tr>
+</table>
 
 <br>
 
-<p>Select your runes:</p>
-
+<p style="font-family:arial;font-size:14px"><b>Select your runes:</b></p>
+<table style="width:0%">
+<tr><td>
 <label for="weaponRune">Weapon Rune:</label>
 <select id="weaponRune" onchange="calculate()">
 <option value="none"></option>
@@ -224,7 +246,7 @@ td, th {
 	<option value="defenseRune">Defense Rune</option>
 	<option value="healthRune">Health Rune</option>
 	<option value="manaRune">Mana Rune</option>
-</select>
+</select></td><td>
 <label for="weaponRuneRarity">Rarity:</label>
 <select id = "weaponRuneRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -232,7 +254,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "weaponRuneStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="helmetRune">Helmet Rune:</label>
 <select id="helmetRune" onchange="calculate()">
 <option value="none"></option>
@@ -242,7 +267,7 @@ td, th {
 	<option value="defenseRune">Defense Rune</option>
 	<option value="healthRune">Health Rune</option>
 	<option value="manaRune">Mana Rune</option>
-</select>
+</select></td><td>
 <label for="helmetRuneRarity">Rarity:</label>
 <select id = "helmetRuneRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -250,7 +275,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "helmetRuneStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="armorRune">Armor Rune:</label>
 <select id="armorRune" onchange="calculate()">
 <option value="none"></option>
@@ -260,7 +288,7 @@ td, th {
 	<option value="defenseRune">Defense Rune</option>
 	<option value="healthRune">Health Rune</option>
 	<option value="manaRune">Mana Rune</option>
-</select>
+</select></td><td>
 <label for="armorRuneRarity">Rarity:</label>
 <select id = "armorRuneRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -268,7 +296,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "armorRuneStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="gloveRune">Glove Rune:</label>
 <select id="gloveRune" onchange="calculate()">
 <option value="none"></option>
@@ -278,7 +309,7 @@ td, th {
 	<option value="defenseRune">Defense Rune</option>
 	<option value="healthRune">Health Rune</option>
 	<option value="manaRune">Mana Rune</option>
-</select>
+</select></td><td>
 <label for="gloveRuneRarity">Rarity:</label>
 <select id = "gloveRuneRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -286,7 +317,10 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
+<td>Effects: <span id= "gloveRuneStats"></span></td>
+</td></tr>
 
+<tr><td>
 <label for="bootRune">Boot Rune:</label>
 <select id="bootRune" onchange="calculate()">
 <option value="none"></option>
@@ -296,7 +330,7 @@ td, th {
 	<option value="defenseRune">Defense Rune</option>
 	<option value="healthRune">Health Rune</option>
 	<option value="manaRune">Mana Rune</option>
-</select>
+</select></td><td>
 <label for="bootRuneRarity">Rarity:</label>
 <select id = "bootRuneRarity" onchange="calculate()">
 	<option value="none"></option>
@@ -304,12 +338,9 @@ td, th {
 	<option value="rare">Rare</option>
 	<option value="epic">Epic</option>
 </select></p>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
+<td>Effects: <span id= "bootRuneStats"></span></td>
+</td></tr>
+</table>
+<br><br><br><br>
 </body>
 </html>
