@@ -2542,8 +2542,7 @@ function calculate(){
 				break;
 				
 				default:
-				document.getElementById(equipStats).innerHTML = 
-				"CRIT.RATE+" + bootRuneEquip.critrate + "%";
+				document.getElementById(equipStats).innerHTML = "";
 			}
 		break;
 		
