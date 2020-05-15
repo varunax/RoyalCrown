@@ -2368,21 +2368,21 @@ function calculate(){
 				gloveRuneEquip.atkspd = 6;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"ATK.SPD+" + gloveRuneEquip.atkspd;
+				"ATK.SPD+" + gloveRuneEquip.atkspd + "%";
 				break;
 				
 				case "rare":
 				gloveRuneEquip.atkspd = 9;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"ATK.SPD+" + gloveRuneEquip.atkspd;
+				"ATK.SPD+" + gloveRuneEquip.atkspd + "%";
 				break;
 				
 				case "epic":
 				gloveRuneEquip.atkspd = 12;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"ATK.SPD+" + gloveRuneEquip.atkspd;
+				"ATK.SPD+" + gloveRuneEquip.atkspd + "%";
 				break;
 				
 				default:
