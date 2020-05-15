@@ -53,7 +53,7 @@ function BaseStats(){
 	this.atkspdGrowth = 0;
 }
 
-function initStats(){for(i in stats){document.getElementById(stats[i]).innerHTML = 0;}}
+function initStats(){for(var i in stats){document.getElementById(stats[i]).innerHTML = 0;}}
 
 function calculate(){
 	var championName = document.getElementById("champion").value;
@@ -61,7 +61,7 @@ function calculate(){
 	var baseStat = new BaseStats();
 	var equipStats = 0;
 	
-	if(championName == "none" || level == 0){initStats(); return;};
+	if(championName == "none" || level == 0){initStats(); return;}
 	
 	switch(championName){
 		case "leo":
@@ -1547,12 +1547,12 @@ function calculate(){
 				break;
 				default:
 				
-				document.getElementById(equipStats).innerHTML = ""
+				document.getElementById(equipStats).innerHTML = "";
 			}
 		break;
 		
 		default:
-		document.getElementById(equipStats).innerHTML = ""
+		document.getElementById(equipStats).innerHTML = "";
 	}
 	
 	var accName = document.getElementById("accessory").value;
@@ -2297,7 +2297,7 @@ function calculate(){
 		break;
 		
 		default:
-		document.getElementById(equipStats).innerHTML = "";'
+		document.getElementById(equipStats).innerHTML = "";
 	}
 	
 	var gloveRuneName = document.getElementById("gloveRune").value;
@@ -2333,9 +2333,6 @@ function calculate(){
 				document.getElementById(equipStats).innerHTML = "";
 			}
 		break;
-		
-		default:
-		document.getElementById(equipStats).innerHTML = "";
 		
 		case "deathRune":
 			switch(gloveRuneRarity){
@@ -2401,7 +2398,7 @@ function calculate(){
 				
 				document.getElementById(equipStats).innerHTML = 
 				"PHY.DEF+" + gloveRuneEquip.pdef +
-				"MAG.DEF+" + gloveRuneEquip.mdef;
+				", MAG.DEF+" + gloveRuneEquip.mdef;
 				break;
 				
 				case "rare":
@@ -2410,7 +2407,7 @@ function calculate(){
 				
 				document.getElementById(equipStats).innerHTML = 
 				"PHY.DEF+" + gloveRuneEquip.pdef +
-				"MAG.DEF+" + gloveRuneEquip.mdef;
+				", MAG.DEF+" + gloveRuneEquip.mdef;
 				break;
 				
 				case "epic":
@@ -2419,7 +2416,7 @@ function calculate(){
 				
 				document.getElementById(equipStats).innerHTML = 
 				"PHY.DEF+" + gloveRuneEquip.pdef +
-				"MAG.DEF+" + gloveRuneEquip.mdef;
+				", MAG.DEF+" + gloveRuneEquip.mdef;
 				break;
 				
 				default:
@@ -2697,7 +2694,7 @@ function calculate(){
 	champion.mpen = 0;
 	champion.mpenPercent = 0;
 	
-	for(i in equipList){
+	for(var i in equipList){
 		champion.patk += equipList[i].patk;
 		champion.matk += equipList[i].matk;
 		champion.pdef += equipList[i].pdef;
@@ -2721,8 +2718,7 @@ function calculate(){
 	
 	champion.matk *= (1 + (armorMatkPercent/100 + helmetMatkPercent/100));
 	
-	var i = 0;
-	var j = 0;
+	var k = 0;
 	var championStats = Object.values(champion);
-	for(j in championStats){document.getElementById(stats[i++]).innerHTML = championStats[j].toFixed(1);}
+	for(var j in championStats){document.getElementById(stats[k++]).innerHTML = championStats[j].toFixed(1);}
 }
