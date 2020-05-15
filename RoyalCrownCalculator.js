@@ -2187,21 +2187,21 @@ function calculate(){
 				armorRuneEquip.atkspd = 6;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"ATK.SPD+" + armorRuneEquip.critrate + "%";
+				"ATK.SPD+" + armorRuneEquip.atkspd + "%";
 				break;
 				
 				case "rare":
 				armorRuneEquip.atkspd = 9;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"ATK.SPD+" + armorRuneEquip.critrate + "%";
+				"ATK.SPD+" + armorRuneEquip.atkspd + "%";
 				break;
 				
 				case "epic":
 				armorRuneEquip.atkspd = 12;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"ATK.SPD+" + armorRuneEquip.critrate + "%";
+				"ATK.SPD+" + armorRuneEquip.atkspd + "%";
 				break;
 			}
 		break;
