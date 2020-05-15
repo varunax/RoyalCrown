@@ -915,7 +915,7 @@ function calculate(){
 				armorEquip.cdred = 5;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"MAG.ATK+" + armorEquip.hp + 
+				"HP+" + armorEquip.hp + 
 				", CD.RED+" + armorEquip.cdred + "%";
 				break;
 				
@@ -924,7 +924,7 @@ function calculate(){
 				armorEquip.cdred = 8;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"MAG.ATK+" + armorEquip.hp + 
+				"HP+" + armorEquip.hp + 
 				", CD.RED+" + armorEquip.cdred + "%";
 				break;
 				
@@ -933,7 +933,7 @@ function calculate(){
 				armorEquip.cdred = 10;
 				
 				document.getElementById(equipStats).innerHTML = 
-				"MAG.ATK+" + armorEquip.hp + 
+				"HP+" + armorEquip.hp + 
 				", CD.RED+" + armorEquip.cdred + "%";
 				break;
 				
